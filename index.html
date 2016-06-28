@@ -20,12 +20,24 @@ var svg = d3.select("body").append("svg")
 			.attr("height", height);
 
 /* JavaScript goes here. */
-/*
 d3.json("GBR_adm2_topojson.json", function(error, uk) {
 	if (error) return console.error(error);
-	console.log(uk);
+
+	var subunits = topojson.feature(uk, uk.objects.GBR_adm2);
+
+	var projection = d3.geo.mercator()
+						   .scale(500)
+						   .translate([width / 2, height / 2]);
+
+	var path = d3.geo.path()
+				 .projection(projection);
+
+	svg.append("path")
+	   .datum(subunits)
+	   .attr("d", path);
 });
-*/
+
+/*
 d3.json("GBR_adm2_topojson.json", function(error, uk) {
 	if (error) return console.error(error);
 
@@ -34,5 +46,5 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
 	   .datum(topojson.feature(uk, uk.objects.GBR_adm2))
 	   .attr("d", d3.geo.path().projection(d3.geo.mercator()));
 });
-
+*/
 </script>
