@@ -1,63 +1,22 @@
-<!-- from Mike Bostock's "Let's make a map" tutorial -->
-
 <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="//d3js.org/topojson.v1.min.js"></script>
+	</head>
 
-/* CSS goes here. */
-.subunit.SCT { fill: #ddc; }
-.subunit.WLS { fill: #cdd; }
-.subunit.NIR { fill: #cdc; }
-/*.subunit.ENG { fill: #dcd; }*/
-.subunit.properties.ISO.GBR { fill: red; }
-.subunit.IRL { fill: none; }
-
-body {
-	background-color: #edecec;
-}
-
-    /* CSS for tooltip box that appears when mouse hovers over US map. */
-        path:hover {
-            fill: #72716c;
-        }
-        #tooltip {
-                position: absolute;
-                width: 200px;
-                height: auto;
-                padding: 10px;
-                background-color: white;
-                -webkit-border-radius: 10px;
-                -moz-border-radius: 10px;
-                border-radius: 10px;
-                -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-                -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-                pointer-events: none;
-                z-index: 3; /* Makes tooltip box appear above other elements on webpage. */
-        }
-        #tooltip.hidden {
-                display: none;
-        }
-        #tooltip p {
-                margin: 0;
-                font-family: sans-serif;
-                font-size: 16px;
-                line-height: 20px;
-        }        
-
-</style>
 <body>
 
   <!-- Tooltip box that appears when mouse hovers over a state on US map.  -->
   <div id="tooltip" class="hidden">
     <strong>Municipality:</strong>
-    <p><span id="value">100</span></p>
+    <p><span id="value1">100</span></p>
     <p><span id="value2">200</span></p>
   </div>
 
 
-<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
 <script>
 /* JavaScript goes here. */
 
@@ -99,7 +58,7 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
        d3.select("#tooltip")
        .style("top", (d3.event.pageY) + 20 + "px")
        .style("left", (d3.event.pageX) + 20 + "px")
-       .select("#value")
+       .select("#value1")
        .text(d.properties.NAME_2);
 
        d3.select("#tooltip")
@@ -122,3 +81,4 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
 
 
 </script>
+</html>
