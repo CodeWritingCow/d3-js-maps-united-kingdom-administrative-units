@@ -4,7 +4,8 @@ body {
 
 /* CSS for tooltip box that appears when mouse hovers over US map. */
 path:hover {
-    fill: #72716c;
+    /*fill: #72716c;*/
+    fill: black;
 }
 #tooltip {
         position: absolute;
@@ -35,5 +36,5 @@ path:hover {
 .subunit.WLS { fill: #cdd; }
 .subunit.NIR { fill: #cdc; }
 /*.subunit.ENG { fill: #dcd; }*/
-.subunit.properties.ISO.GBR { fill: red; }
+.subunit.England { fill: #dcd; }
 .subunit.IRL { fill: none; }

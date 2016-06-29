@@ -23,7 +23,7 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
 	   .data(topojson.feature(uk, uk.objects.GBR_adm2).features)
 	   .enter()
 	   .append("path")
-	   //.attr("class", function(d) { return "subunit " + d.id; })
+	   .attr("class", function(d) { return "subunit." + d.properties.NAME_1; })
 	   .attr("d", path)
 	   .attr("fill", "#4b4a47")
 	   .attr("stroke-width", 1)
