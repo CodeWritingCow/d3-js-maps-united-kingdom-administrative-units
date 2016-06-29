@@ -25,7 +25,20 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
 	   .append("path")
 	   .attr("class", function(d) { return "subunit." + d.properties.NAME_1; })
 	   .attr("d", path)
-	   .attr("fill", "#4b4a47")
+	   
+	   // Color each admin unit according to its parent country
+	   .attr("fill", function(d){
+	   	if (d.properties.NAME_1 == "Scotland") {
+	   		return "#242322";
+	   	} else if (d.properties.NAME_1 == "Wales") {
+	   		return "#31302e";
+	   	} else if (d.properties.NAME_1 == "Northern Ireland") {
+	   		return "green";
+	   	} else {
+	   		return "#4b4a47";
+	   	}
+	   })
+	   
 	   .attr("stroke-width", 1)
        .attr("stroke", "#f5f5f5")
 
@@ -53,5 +66,4 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
        //Hide the tooltip
        d3.select("#tooltip").classed("hidden", true);
        });
-
 });
