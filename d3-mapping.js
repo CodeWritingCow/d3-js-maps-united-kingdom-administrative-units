@@ -24,7 +24,6 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
 	   .enter()
 	   .append("path")
 	   //.attr("class", function(d) { return "subunit " + d.id; })
-	   //.attr("class", function(d) { return "subunit " + d.id; })
 	   .attr("d", path)
 	   .attr("fill", "#4b4a47")
 	   .attr("stroke-width", 1)
