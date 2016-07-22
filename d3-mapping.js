@@ -2,10 +2,10 @@ var width = 960,
 	height = 1160;
 
 var projection = d3.geo.albers()
-					   .center([0, 55.4])
+					   .center([0, 51])
 					   .rotate([4.4, 0])
 					   .parallels([50, 60])
-					   .scale(6000)
+					   .scale(3750)
 					   .translate([width / 2, height / 2]);
 
 var path = d3.geo.path()
@@ -44,18 +44,18 @@ d3.json("GBR_adm2_topojson.json", function(error, uk) {
 	   // Color each admin unit according to its parent country
 	   .attr("fill", function(d){
 	   	if (d.properties.NAME_1 == "Scotland") {
-	   		return "#242322";
+	   		return "#66bf7f";
 	   	} else if (d.properties.NAME_1 == "Wales") {
-	   		return "#31302e";
+	   		return "#99d594";
 	   	} else if (d.properties.NAME_1 == "Northern Ireland") {
-	   		return "green";
+	   		return "#e6f5b1";
 	   	} else {
-	   		return "#4b4a47";
+	   		return "#ccebc5";
 	   	}
 	   })
 	   
-	   .attr("stroke-width", 1)
-       .attr("stroke", "#f5f5f5")
+	   .attr("stroke-width", 0.25)
+       .attr("stroke", "black")
 
        .on("mousemove", function(d) {
         
